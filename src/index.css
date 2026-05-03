@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-tangerine-tag: #f69251;
+  --color-midnight-ink: #181825;
+  --color-graphite: #484758;
+  --color-carbon: #000000;
+  --color-stone: #636363;
+  --color-pebble: #949494;
+  --color-fog: #f7f7f7;
+  --color-snow: #ffffff;
+  
+  /* Radius */
+  --radius-cards: 24px;
+  --radius-buttons: 28px;
+  --radius-inner: 12px;
+
+  /* Shadows */
+  --shadow-subtle: 0 2px 3px -2px rgba(24, 24, 37, 0.12);
+}
+
+@layer base {
+  body {
+    @apply bg-fog text-midnight-ink font-sans antialiased selection:bg-tangerine-tag/30;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply h-11 px-6 rounded-[--radius-buttons] bg-tangerine-tag text-snow font-semibold flex items-center justify-center transition-all hover:opacity-90 active:scale-[0.98] shadow-sm;
+  }
+  
+  .btn-secondary {
+    @apply h-11 px-6 rounded-[--radius-buttons] bg-snow text-midnight-ink font-medium border border-pebble/20 flex items-center justify-center transition-all hover:bg-fog active:scale-[0.98];
+  }
+
+  .btn-download {
+    @apply h-11 px-6 rounded-[--radius-buttons] bg-[#10b981] text-snow font-semibold flex items-center justify-center transition-all hover:opacity-90 active:scale-[0.98] shadow-sm;
+  }
+  
+  .card {
+    @apply bg-snow rounded-[--radius-cards] p-6 shadow-[--shadow-subtle];
+  }
+  
+  .input-field {
+    @apply w-full bg-snow border border-pebble/20 rounded-lg py-3 px-4 focus:border-carbon focus:outline-none placeholder-pebble transition-colors font-sans text-sm;
+  }
+
+  .nav-link {
+    @apply text-stone hover:text-carbon font-medium transition-colors relative py-4;
+  }
+
+  .nav-link.active {
+    @apply text-carbon after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-carbon;
+  }
+
+  .heading-display {
+    @apply font-sans font-light text-[32px] leading-tight tracking-[-0.5px] text-carbon mb-6;
+  }
+
+  .label-uppercase {
+    @apply text-[12px] font-bold uppercase tracking-wider text-stone mb-2 block;
+  }
+}
